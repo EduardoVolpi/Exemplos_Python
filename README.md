@@ -1,2 +1,2 @@
-# Exemplos_Python
- Códigos de exemplos em python utilizando interface gráfica com PySide6.
+# Exemplos Python
+ Vários pequenos códigos de exemplos escritos em python e utilizando interface gráfica com PySide6.
