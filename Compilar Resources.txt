@@ -1,0 +1,1 @@
+rcc -g python resources.qrc -o resources_rc.py

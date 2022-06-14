@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="icones">
+    <file>close.ico</file>
+    <file>qt_32px.png</file>
+    <file>py.ico</file>
+  </qresource>
+  <qresource prefix="imagens">
+    <file>python_50px.png</file>
+    <file>120px-Py-128.png</file>
+  </qresource>
+</RCC>

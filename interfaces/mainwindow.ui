@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Eduardo Volpi de Almeida</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>952</width>
+    <height>555</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Python Examples</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/icones/py.ico</normaloff>:/icones/py.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>83</y>
+      <width>931</width>
+      <height>419</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tabExemplos1">
+     <attribute name="title">
+      <string>Exemplos 1</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>16</y>
+        <width>271</width>
+        <height>360</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Caixas de Diálogo</string>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>251</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="verticalSpacing">
+         <number>5</number>
+        </property>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="btnDialogInfo">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo de &quot;Informação&quot;</string>
+          </property>
+          <property name="text">
+           <string>Informação</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QPushButton" name="btnInputText">
+          <property name="statusTip">
+           <string>Exemplo de caixa de entrada de &quot;Texto&quot;</string>
+          </property>
+          <property name="text">
+           <string>Input Text</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QPushButton" name="btnInputInt">
+          <property name="statusTip">
+           <string>Exemplo de caixa de entrada de &quot;Números Inteiros&quot;</string>
+          </property>
+          <property name="text">
+           <string>Input Int</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QPushButton" name="btnInputDouble">
+          <property name="statusTip">
+           <string>Exemplo de caixa de entrada de &quot;Números Decimais&quot;</string>
+          </property>
+          <property name="text">
+           <string>Input Double</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="2">
+         <widget class="QPushButton" name="btnDialogCustom">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo personalizada</string>
+          </property>
+          <property name="text">
+           <string>Diálogo Personalizado</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QPushButton" name="btnAbrirArquivo">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo de &quot;Abrir Arquivo&quot;</string>
+          </property>
+          <property name="text">
+           <string>Abrir Arquivo</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" colspan="2">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700; color:#0277bd;&quot;&gt;Pré-definidos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QPushButton" name="btnDialogSobreQt">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo &quot;Sobre Qt&quot;</string>
+          </property>
+          <property name="text">
+           <string>Sobre Qt</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QPushButton" name="btnDialogAlerta">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo de &quot;Alerta&quot;</string>
+          </property>
+          <property name="text">
+           <string>Alerta</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QPushButton" name="btnDialogQuestao">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo de &quot;Pergunta&quot;</string>
+          </property>
+          <property name="text">
+           <string>Questão</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="btnDialogErro">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo de &quot;Erro&quot;</string>
+          </property>
+          <property name="text">
+           <string>Erro</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="btnDialogSobre">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo &quot;Sobre&quot;</string>
+          </property>
+          <property name="text">
+           <string>Sobre</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QPushButton" name="btnSalvarArquivo">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo de &quot;Salvar Arquivo&quot;</string>
+          </property>
+          <property name="text">
+           <string>Salvar Arquivo</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="btnInputItem">
+          <property name="statusTip">
+           <string>Exemplo de caixa de escolha de um &quot;Item&quot;</string>
+          </property>
+          <property name="text">
+           <string>Input Item</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="2" rowspan="3">
+         <widget class="QLabel" name="lblFontesCores">
+          <property name="statusTip">
+           <string>Utilize os botões &quot;Fontes&quot; e &quot;Côres&quot; para me estilizar</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Eu sou&lt;br&gt;um simples&lt;br&gt;texto.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="2">
+         <widget class="QPushButton" name="btnDialogColors">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo de &quot;Côres&quot;</string>
+          </property>
+          <property name="text">
+           <string>Côres</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="2">
+         <widget class="QPushButton" name="btnDialogFonts">
+          <property name="statusTip">
+           <string>Exemplo de caixa de diálogo de &quot;Fontes do Sistema&quot;</string>
+          </property>
+          <property name="text">
+           <string>Fontes</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <widget class="QPushButton" name="btnEscolherPasta">
+          <property name="statusTip">
+           <string>Exemplo de escolha de uma pasta do sistema</string>
+          </property>
+          <property name="text">
+           <string>Escolher Pasta</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>16</y>
+        <width>221</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pastas e Arquivos</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>201</width>
+         <height>316</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnGravarArquivo">
+          <property name="statusTip">
+           <string>Grava um arquivo de texto no diretório do programa</string>
+          </property>
+          <property name="text">
+           <string>Gravar Arquivo</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnLerArquivo">
+          <property name="statusTip">
+           <string>Lê um arquivo de texto no diretório do programa</string>
+          </property>
+          <property name="text">
+           <string>Ler Arquivo</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnExcluirArquivo">
+          <property name="statusTip">
+           <string>Exclui um arquivo de texto no diretório do programa</string>
+          </property>
+          <property name="text">
+           <string>Excluir Arquivo</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRenomearAP">
+          <property name="text">
+           <string>Renomear Arq/Pasta</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnPastaHome">
+          <property name="statusTip">
+           <string>Caminho da pasta &quot;home&quot; do sistema</string>
+          </property>
+          <property name="text">
+           <string>Pasta &quot;Home&quot;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnPastaDocuments">
+          <property name="statusTip">
+           <string>Caminho da pasta &quot;Documentos&quot; do sistema</string>
+          </property>
+          <property name="text">
+           <string>Pasta &quot;Documents e Desktop&quot;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnPastaAtual">
+          <property name="statusTip">
+           <string>Caminho da pasta de onde o programa está sendo executado</string>
+          </property>
+          <property name="text">
+           <string>Pasta Atual</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnCriarPasta">
+          <property name="statusTip">
+           <string>Cria uma pasta</string>
+          </property>
+          <property name="text">
+           <string>Criar Pasta</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnCriarPastas">
+          <property name="statusTip">
+           <string>Cria mais de uma pasta simultaneamente</string>
+          </property>
+          <property name="text">
+           <string>Criar Pastas</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnExcluirPasta">
+          <property name="statusTip">
+           <string>Exclui as pastas criadas através do dois botões acima, caso existam.</string>
+          </property>
+          <property name="text">
+           <string>Excluir Pastas Criadas</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnListDir">
+          <property name="statusTip">
+           <string>Lista pastas e arquivos de um diretório</string>
+          </property>
+          <property name="text">
+           <string>Listar Diretório</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>16</y>
+        <width>171</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Random</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>151</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnRandUniform">
+          <property name="focusPolicy">
+           <enum>Qt::WheelFocus</enum>
+          </property>
+          <property name="statusTip">
+           <string>Gera um valor decimal do mínimo ao máximo</string>
+          </property>
+          <property name="text">
+           <string>Random Uniform</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRandInt">
+          <property name="statusTip">
+           <string>Gera um valor inteiro do mínimo ao máximo</string>
+          </property>
+          <property name="text">
+           <string>Random Int</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRandChoices">
+          <property name="statusTip">
+           <string>Escolhe uma opção aleatória</string>
+          </property>
+          <property name="text">
+           <string>Random Choices</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRandChoices2">
+          <property name="statusTip">
+           <string>Escolhe duas opções aleatórias</string>
+          </property>
+          <property name="text">
+           <string>Random Choices 2</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRandShuffle">
+          <property name="statusTip">
+           <string>Embaralha uma lista de opções</string>
+          </property>
+          <property name="text">
+           <string>Random Shuffle</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRandSample">
+          <property name="statusTip">
+           <string>Escolhe aleatoriamente mais de um elemento de uma lista sem repetir elementos.</string>
+          </property>
+          <property name="text">
+           <string>Random Sample</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>236</y>
+        <width>171</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>696</x>
+        <y>16</y>
+        <width>220</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Outros</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>200</width>
+         <height>142</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnLoterias">
+          <property name="statusTip">
+           <string>Obtenha palpites para vários jogos da loteria</string>
+          </property>
+          <property name="text">
+           <string>Loterias</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSistemaOperacional">
+          <property name="statusTip">
+           <string>Mostra o sistema operacional atual</string>
+          </property>
+          <property name="text">
+           <string>Sistema Operacional</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnDataHoraSistema">
+          <property name="statusTip">
+           <string>Exibe data e hora do sistema no formato local</string>
+          </property>
+          <property name="text">
+           <string>Data e Hora do Sistema</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnAbrirSegundoForm">
+          <property name="statusTip">
+           <string>Exemplo de um segundo formulário</string>
+          </property>
+          <property name="text">
+           <string>Abrir Segundo Form</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnParaTestes">
+          <property name="statusTip">
+           <string>Botão sem função específica, apenas para testes diversos</string>
+          </property>
+          <property name="text">
+           <string>Testes</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabExemplos2">
+     <attribute name="title">
+      <string>Exemplos 2</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>961</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>112</x>
+       <y>7</y>
+       <width>311</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt; font-weight:700; color:#0277bd;&quot;&gt;Python Examples&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>11</y>
+       <width>50</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../resources.qrc">:/imagens/python_50px.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>77</x>
+       <y>30</y>
+       <width>24</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255,0.9);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../resources.qrc">:/icones/qt_32px.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>label_2</zorder>
+    <zorder>label_4</zorder>
+    <zorder>label_3</zorder>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>952</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArquivo">
+    <property name="title">
+     <string>Arquivo</string>
+    </property>
+    <addaction name="action_Sair"/>
+   </widget>
+   <addaction name="menuArquivo"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Sair">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icones/close.ico</normaloff>:/icones/close.ico</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Sair</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>false</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>false</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>false</bool>
+  </property>
+ </designerdata>
+</ui>
