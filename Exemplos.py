@@ -373,12 +373,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                                                f'Números sorteados:\n{megasena}\n\nDeseja salvar em um arquivo?')
                 if dialogo == QMessageBox.Yes:
                     # Caminho e Arquivo será salvo na area de trabalho
-                    arquivo = os.path.expanduser(
-                        '~') + os.path.sep + 'Desktop' + os.path.sep + 'Loterias.txt'
+                    arquivo = os.path.expanduser('~') + os.path.sep + 'Desktop' + os.path.sep + 'Loterias.txt'
                     funcoes.gravar_loteria('Megasena', arquivo, megasena)
             elif jogo == 'Lotofacil':
-                QMessageBox.information(
-                    self, 'Lotofacil', 'Estará disponível em breve')
+                # 15 numeros de 1 a 25
+                lotofacil = random.sample(range(1, 26), 15)
+                lotofacil = str(lotofacil).replace('[', '')
+                lotofacil = lotofacil.replace(']', '')
+                dialogo = QMessageBox.question(self, 'Lotofacil',
+                                               f'Números sorteados:\n{lotofacil}\n\nDeseja salvar em um arquivo?')
+                if dialogo == QMessageBox.Yes:
+                    # Caminho e Arquivo será salvo na area de trabalho
+                    arquivo = os.path.expanduser('~') + os.path.sep + 'Desktop' + os.path.sep + 'Loterias.txt'
+                    funcoes.gravar_loteria('Lotofácil', arquivo, lotofacil)
             elif jogo == 'Lotomania':
                 QMessageBox.information(
                     self, 'Lotomania', 'Estará disponível em breve')

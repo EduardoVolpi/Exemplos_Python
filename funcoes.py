@@ -10,7 +10,7 @@ def gravar_loteria(lottery_name: str, file_path, file_content):
     arquivo = open(file_path, 'a', encoding='UTF-8')
     arquivo.write(f'\nNúmeros para {lottery_name}:\n\n')
     arquivo.write(str(file_content) + '\n')
-    arquivo.write('------------------------------------------')
+    arquivo.write('------------------------------------------------------------')
     arquivo.close()
 
     dialogo = QMessageBox()
