@@ -1,5 +1,6 @@
-from PySide6.QtWidgets import QMessageBox
 import os
+
+from PySide6.QtWidgets import QMessageBox
 
 
 def gravar_loteria(lottery_name: str, file_path, file_content):

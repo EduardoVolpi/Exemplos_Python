@@ -1,43 +1,77 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialog, QInputDialog, QFontDialog, \
-    QColorDialog, QWidget
-from PySide6.QtCore import QSize, QTranslator, QLibraryInfo, Qt
-from interfaces.ui_mainwindow import Ui_MainWindow
-from interfaces.ui_segundoform import Ui_frmSegundoForm
-import sys
 import os
 import platform
 import random
-import funcoes
+import sys
 from datetime import datetime  # Para datas e horas
+
+from PySide6.QtCore import QSize, QTranslator, QLibraryInfo, Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, \
+    QFileDialog, QInputDialog, QFontDialog, \
+    QColorDialog, QWidget
+
+import funcoes
+from interfaces.ui_mainwindow import Ui_MainWindow
+from interfaces.ui_segundoform import Ui_frmSegundoForm
+
+"""
+Begin Class SegundoForm
+"""
 
 
 class SegundoForm(QWidget, Ui_frmSegundoForm):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.setMaximumSize(390, 244)
-        self.setMinimumSize(390, 244)
-        self.setWindowModality(Qt.ApplicationModal)  # tem que importar Qt from PySide6.QtCore
+        # self.setMaximumSize(390, 244)
+        # self.setMinimumSize(390, 244)
+        self.setFixedSize(QSize(390, 244))
+        self.setWindowModality(
+            Qt.ApplicationModal)  # tem que importar Qt from PySide6.QtCore
         self.setWindowTitle('Teste Segundo Form')
-        ''' Botões de Ações'''
+        '''
+        Widgets
+        '''
+
+        """
+        Signals/Slots
+        """
         self.btnSegFormClose.clicked.connect(self.btn_segform_close_clicked)
+
+        """
+        Functions/Actions
+        """
 
     def btn_segform_close_clicked(self):
         self.close()
+
+
+"""
+End Class SegundoForm
+"""
+
+"""
+Begin Class MainWindows
+"""
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        '''Para Fixar Tamanho da Janela'''
+        # Para Fixar Tamanho da Janela'''
         self.setMaximumSize(QSize(952, 555))
         self.setMinimumSize(QSize(952, 555))
-        '''Desabilitado pois só o exemplo no código basta'''
+        '''
+        Widgets
+        '''
+        # Desabilitado pois só o exemplo no código basta
         self.btnCriarPastas.setEnabled(False)
-        '''Menu Sair'''
+        '''
+        Signals/Slots
+        '''
+        # Menu Sair
         self.action_Sair.triggered.connect(self.close)
-        '''Botões Caixas de Diálogo'''
+        # Botões Caixas de Diálogo
         self.btnDialogCustom.clicked.connect(self.btn_dialog_custom_clicked)
         self.btnDialogSobre.clicked.connect(self.btn_dialog_sobre_clicked)
         self.btnDialogSobreQt.clicked.connect(self.btn_dialog_sobre_qt_clicked)
@@ -54,7 +88,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.btnEscolherPasta.clicked.connect(self.btn_escolher_pasta_clicked)
         self.btnDialogFonts.clicked.connect(self.btn_dialog_fonts_clicked)
         self.btnDialogColors.clicked.connect(self.btn_dialog_colors_clicked)
-        '''Botões Pastas e Arquivos'''
+        # Botões Pastas e Arquivos
         self.btnGravarArquivo.clicked.connect(self.btn_gravar_arquivo_clicked)
         self.btnLerArquivo.clicked.connect(self.btn_ler_arquivo_clicked)
         self.btnExcluirArquivo.clicked.connect(
@@ -67,26 +101,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.btnCriarPastas.clicked.connect(self.btn_criar_pastas_clicked)
         self.btnExcluirPasta.clicked.connect(self.btn_excluir_pastas_clicked)
         self.btnListDir.clicked.connect(self.btn_list_dir_clicked)
-        '''Botões Para Random'''
+        # Botões Para Random
         self.btnRandUniform.clicked.connect(self.btn_rand_uniform_clicked)
         self.btnRandInt.clicked.connect(self.btn_rand_int_clicked)
         self.btnRandChoices.clicked.connect(self.btn_rand_choices_clicked)
         self.btnRandChoices2.clicked.connect(self.btn_rand_choices2_clicked)
         self.btnRandShuffle.clicked.connect(self.btn_rand_shuffle_clicked)
         self.btnRandSample.clicked.connect(self.btn_rand_sample_clicked)
-        '''Botões Para Outros'''
+        # Botões Para Outros
         self.btnLoterias.clicked.connect(self.btn_loterias_clicked)
         self.btnSistemaOperacional.clicked.connect(
             self.btn_sistema_operacional_clicked)
-        self.btnDataHoraSistema.clicked.connect(self.btn_data_hora_sistema_clicked)
-        self.btnAbrirSegundoForm.clicked.connect(self.btn_abrir_segundo_form_clicked)
-        '''Botões Para Testes'''
+        self.btnDataHoraSistema.clicked.connect(
+            self.btn_data_hora_sistema_clicked)
+        self.btnAbrirSegundoForm.clicked.connect(
+            self.btn_abrir_segundo_form_clicked)
+        # Botões Para Testes
         self.btnParaTestes.clicked.connect(self.btn_para_testes_clicked)
 
-        '''Inicia Outros Forms Aqui - Depois é só utilizar o metodo .show() para abrir'''
+        # Inicia Outros Forms Aqui - Depois é só utilizar o metodo .show() para abrir
         self.segundo_form = SegundoForm()  # Ui importada acima e classe definida acima
 
-    '''Definição das Funções de Botões da Caixas de Diálogo'''
+    '''
+    Functions/Actions
+    '''
 
     def btn_dialog_custom_clicked(self):
         dialogo = QMessageBox(self)
@@ -104,83 +142,64 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def btn_dialog_sobre_clicked(self):
         # Utiliza o icone definido para o programa
-        QMessageBox.about(self, 'Titulo Exemplo',
-                          'Mensagem de texto "Sobre" o programa')
+        QMessageBox.about(self, 'Titulo Exemplo', 'Mensagem de texto "Sobre" o programa')
 
     def btn_dialog_sobre_qt_clicked(self):
         QMessageBox.aboutQt(self, 'Titulo do Programa')
 
     def btn_dialog_info_clicked(self):
-        QMessageBox.information(self, 'Titulo Exemplo',
-                                'Esta é uma mensagem informativa')
+        QMessageBox.information(self, 'Titulo Exemplo', 'Esta é uma mensagem informativa')
 
     def btn_dialog_erro_clicked(self):
-        QMessageBox.critical(self, 'Titulo Exemplo',
-                             'Esta é uma mensagem de erro crítico')
+        QMessageBox.critical(self, 'Titulo Exemplo', 'Esta é uma mensagem de erro crítico')
 
     def btn_dialog_alerta_clicked(self):
-        QMessageBox.warning(self, 'Titulo aqui', 'Tem certeza que deseja aplicar estas mudanças?',
-                            buttons=QMessageBox.Apply | QMessageBox.Cancel)
+        QMessageBox.warning(self, 'Titulo aqui', 'Tem certeza que deseja aplicar estas mudanças?', buttons=QMessageBox.Apply | QMessageBox.Cancel)
 
     def btn_dialog_questao_clicked(self):
-        dialogo = QMessageBox.question(
-            self, 'Titulo', 'Tem certeza que deseja encerrar o programa?')
+        dialogo = QMessageBox.question(self, 'Titulo', 'Tem certeza que deseja encerrar o programa?')
         if dialogo == QMessageBox.Yes:
             self.close()
 
     def btn_input_text_clicked(self):
-        digitado, confirma = QInputDialog.getText(
-            self, 'Titulo Exemplo', 'Por favor informe seu nome completo:')
+        digitado, confirma = QInputDialog.getText(self, 'Titulo Exemplo', 'Por favor informe seu nome completo:')
         if confirma:
             temp = digitado.replace(' ', '')
             if temp > '':
-                QMessageBox.information(
-                    self, 'Titulo Exemplo', f'Digitado: {digitado}')
+                QMessageBox.information(self, 'Titulo Exemplo', f'Digitado: {digitado}')
 
     def btn_input_int_clicked(self):
-        digitado, confirma = QInputDialog.getInt(
-            self, 'Titulo Exemplo', 'Informe um número qualquer abaixo:')
+        digitado, confirma = QInputDialog.getInt(self, 'Titulo Exemplo', 'Informe um número qualquer abaixo:')
         if confirma:
-            QMessageBox.information(
-                self, 'Titulo Aqui', f'Voce escolheu o número {digitado}')
+            QMessageBox.information(self, 'Titulo Aqui', f'Voce escolheu o número {digitado}')
 
     def btn_input_double_clicked(self):
-        digitado, confirma = QInputDialog.getDouble(
-            self, 'Titulo Exemplo', 'Informe um número qualquer abaixo:')
+        digitado, confirma = QInputDialog.getDouble(self, 'Titulo Exemplo', 'Informe um número qualquer abaixo:')
         if confirma:
-            QMessageBox.information(
-                self, 'Titulo Aqui', f'Voce escolheu o número {digitado}')
+            QMessageBox.information(self, 'Titulo Aqui', f'Voce escolheu o número {digitado}')
 
     def btn_input_item_clicked(self):
-        digitado, confirma = QInputDialog.getItem(self, 'Titulo Exemplo', 'Escolha uma côr:',
-                                                  ['Azul', 'Vermelho', 'Verde', 'Amarelo'], editable=False)
+        digitado, confirma = QInputDialog.getItem(self, 'Titulo Exemplo', 'Escolha uma côr:', ['Azul', 'Vermelho', 'Verde', 'Amarelo'], editable=False)
         if confirma:
-            QMessageBox.information(
-                self, 'Titulo Aqui', f'Voce escolheu a côr {digitado}')
+            QMessageBox.information(self, 'Titulo Aqui', f'Voce escolheu a côr {digitado}')
 
     def btn_abrir_arquivo_clicked(self):
-        arquivo, _ = QFileDialog.getOpenFileName(
-            self, 'Titulo Aqui(abre)', '.')
+        arquivo, _ = QFileDialog.getOpenFileName(self, 'Titulo Aqui(abre)', '.')
         temp = arquivo.replace(' ', '')
         if temp > '':
-            QMessageBox.about(self, 'Titulo Aqui',
-                              f'Arquivo aberto:\n {arquivo}')
+            QMessageBox.about(self, 'Titulo Aqui', f'Arquivo aberto:\n {arquivo}')
 
     def btn_salvar_arquivo_clicked(self):
-        arquivo, _ = QFileDialog.getSaveFileName(
-            self, 'Titulo Aqui(salva)', '.')
+        arquivo, _ = QFileDialog.getSaveFileName(self, 'Titulo Aqui(salva)', '.')
         temp = arquivo.replace(' ', '')
         if temp > '':
-            QMessageBox.about(self, 'Titulo Aqui',
-                              f'Arquivo salvo:\n {arquivo}')
+            QMessageBox.about(self, 'Titulo Aqui', f'Arquivo salvo:\n {arquivo}')
 
     def btn_escolher_pasta_clicked(self):
-        arquivo = QFileDialog.getExistingDirectory(
-            self, 'Escolha a pasta', '.')
+        arquivo = QFileDialog.getExistingDirectory(self, 'Escolha a pasta', '.')
         temp = arquivo
         if temp.replace(' ', '') > '':
-            QMessageBox.about(self, 'Titulo Aqui',
-                              f'Diretorio escolhido:\n {arquivo}')
+            QMessageBox.about(self, 'Titulo Aqui', f'Diretorio escolhido:\n {arquivo}')
 
     def btn_dialog_fonts_clicked(self):
         confirmado, fonte = QFontDialog.getFont(self)
@@ -194,7 +213,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if color.isValid():
             self.lblFontesCores.setStyleSheet(f'color:{color.name()}')
 
-    '''Definição Funções de Pastas e Arquivos'''
+    # Definição Funções de Pastas e Arquivos
 
     def btn_gravar_arquivo_clicked(self):
         # Primeiro obtenho e formato a data e hora
@@ -209,8 +228,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         arquivo.write('\n')
         arquivo.write(f'Gravado em {data} às {hora}')
         arquivo.close()
-        QMessageBox.information(
-            self, 'Titulo', 'Arquivo Gravado com Sucesso!.')
+        QMessageBox.information(self, 'Titulo', 'Arquivo Gravado com Sucesso!.')
 
     def btn_ler_arquivo_clicked(self):
         if os.path.exists('arquivo.txt'):  # tem que usar 'import os' acima
@@ -223,8 +241,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def btn_excluir_arquivo_clicked(self):
         if os.path.exists('arquivo.txt'):  # tem que usar 'import os' acima
             os.remove('arquivo.txt')
-            QMessageBox.information(
-                self, 'Titulo', 'Arquivo Removido com Sucesso!.')
+            QMessageBox.information(self, 'Titulo', 'Arquivo Removido com Sucesso!.')
         else:
             QMessageBox.information(self, 'Titulo', 'Arquivo Inexistente.')
 
@@ -238,15 +255,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             os.remove('arquivo_renomeado.txt')
         if os.path.exists('arquivo.txt'):  # tem que usar 'import os' acima
             os.rename('arquivo.txt', 'arquivo_renomeado.txt')
-            QMessageBox.information(self, 'Titulo',
-                                    'Arquivo "arquivo.txt" renomeado para "arquivo_renomeado.txt".')
+            QMessageBox.information(self, 'Titulo', 'Arquivo "arquivo.txt" renomeado para "arquivo_renomeado.txt".')
         else:
             QMessageBox.information(self, 'Titulo', 'Arquivo Inexistente.')
 
     def btn_pasta_home_clicked(self):
         user_dir = os.path.expanduser('~')
-        QMessageBox.about(
-            self, 'Titulo', f'Diretório "home" do sistema:\n{user_dir}')
+        QMessageBox.about(self, 'Titulo', f'Diretório "home" do sistema:\n{user_dir}')
 
     def btn_pasta_documents_cliked(self):
         sep = os.path.sep
@@ -255,14 +270,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         desktop = 'Desktop'
         documents_dir = user_dir + sep + documents
         desktop_dir = user_dir + sep + desktop
-        QMessageBox.about(self, 'Titulo',
-                          f'Diretório "Documentos":\n{documents_dir}\nArea de Trabalho (Desktop):\n{desktop_dir}')
+        QMessageBox.about(self, 'Titulo', f'Diretório "Documentos":\n{documents_dir}\nArea de Trabalho (Desktop):\n{desktop_dir}')
 
     def btn_pasta_atual_clicked(self):
         # diretorio corrente/atual de onde se encontra executando o programa
         pasta_atual = os.getcwd()
-        QMessageBox.about(
-            self, 'Titulo', f'Diretório do programa:\n{pasta_atual}')
+        QMessageBox.about(self, 'Titulo', f'Diretório do programa:\n{pasta_atual}')
 
     def btn_criar_pasta_clicked(self):
         pasta_path = os.path.expanduser('~') + os.path.sep + 'Pasta Criada'
@@ -270,35 +283,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             os.mkdir(pasta_path)
             QMessageBox.about(self, 'Titulo', f'Pasta criada:\n{pasta_path}')
         else:
-            QMessageBox.warning(
-                self, 'Titulo', f'A pasta "{pasta_path}" já existe.')
+            QMessageBox.warning(self, 'Titulo', f'A pasta "{pasta_path}" já existe.')
 
     def btn_criar_pastas_clicked(self):
-        pasta_path = os.path.expanduser(
-            '~') + os.path.sep + 'Pasta Criada2' + os.path.sep + 'Outra Pasta'
+        pasta_path = os.path.expanduser('~') + os.path.sep + 'Pasta Criada2' + os.path.sep + 'Outra Pasta'
         if not os.path.exists(pasta_path):
             os.makedirs(pasta_path)
             QMessageBox.about(self, 'Titulo', f'Pastas criadas:\n{pasta_path}')
         else:
-            QMessageBox.warning(
-                self, 'Titulo', f'As pastas "{pasta_path}" já existem.')
+            QMessageBox.warning(self, 'Titulo', f'As pastas "{pasta_path}" já existem.')
 
     def btn_excluir_pastas_clicked(self):
         # Esta função: os.rmdir remove somente pastas vazias.
         # Para remover pastas com qualquer conteúdo (arquivos ou outras pastas)
         # é preciso usar 'import shutil' e utilizar shutil.rmtree(nomeDir)
         pasta_path = os.path.expanduser('~') + os.path.sep + 'Pasta Criada'
-        pastas_path = os.path.expanduser(
-            '~') + os.path.sep + 'Pasta Criada2' + os.path.sep + 'Outra Pasta'
+        pastas_path = os.path.expanduser('~') + os.path.sep + 'Pasta Criada2' + os.path.sep + 'Outra Pasta'
 
         if os.path.exists(pasta_path):
             os.rmdir(pasta_path)
-            QMessageBox.information(
-                self, 'T', f'Pasta removida com sucesso.\n{pasta_path}')
+            QMessageBox.information(self, 'T', f'Pasta removida com sucesso.\n{pasta_path}')
         elif os.path.exists(pastas_path):
             os.rmdir(pastas_path)
-            QMessageBox.information(
-                self, 'T', f'Pasta removida com sucesso.\n{pastas_path}')
+            QMessageBox.information(self, 'T', f'Pasta removida com sucesso.\n{pastas_path}')
         else:
             QMessageBox.information(self, 'T', f'Pasta Inexistente')
 
@@ -306,60 +313,50 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Comando os.listdir() # Lista diretorios e arquivos
 
         # primeiro vou deixar o usuario escolher o diretorio que deseja lista:
-        arquivo = QFileDialog.getExistingDirectory(
-            self, 'Escolha a pasta', '.')
+        arquivo = QFileDialog.getExistingDirectory(self, 'Escolha a pasta', '.')
         temp = arquivo
         if temp.replace(' ', '') > '':
             # Lista diretorios e arquivos da pasta
             dirs_and_files = os.listdir(arquivo)
-            QMessageBox.information(self, f'Listando: "{arquivo}"',
-                                    f'Lista de arquivos e diretórios:\n\n{str(dirs_and_files)}')
+            QMessageBox.information(self, f'Listando: "{arquivo}"', f'Lista de arquivos e diretórios:\n\n{str(dirs_and_files)}')
 
-    '''Definição Funções Random - usa "import random"'''
+    # Definição Funções Random - usa "import random"
 
     def btn_rand_uniform_clicked(self):
         # Gera um valor decimal
         val = random.uniform(4, 10)
-        QMessageBox.about(
-            self, 'Title', f'Valor decimal entre 4 e 10 gerado aleatoriamente:\n\n{val}')
+        QMessageBox.about(self, 'Title', f'Valor decimal entre 4 e 10 gerado aleatoriamente:\n\n{val}')
 
     def btn_rand_int_clicked(self):
         # Gera um valor inteiro
         val = random.randint(4, 10)
-        QMessageBox.about(
-            self, 'Title', f'Valor inteiro entre 4 e 10 gerado aleatoriamente:\n\n{val}')
+        QMessageBox.about(self, 'Title', f'Valor inteiro entre 4 e 10 gerado aleatoriamente:\n\n{val}')
 
     def btn_rand_choices_clicked(self):
         # Escolhe uma opção aleatória
         nomes = ['Eduardo', 'Cleusa', 'Nádia', 'Karina', 'Pedro']
         nome = random.choice(nomes)
-        QMessageBox.about(
-            self, 'Title', f'Nome escolhido aleatoriamente:\nNomes: {nomes}\nEscolhido: {nome}')
+        QMessageBox.about(self, 'Title', f'Nome escolhido aleatoriamente:\nNomes: {nomes}\nEscolhido: {nome}')
 
     def btn_rand_choices2_clicked(self):
         # Escolhe mais de uma opção aleatória
         nomes = ['Eduardo', 'Cleusa', 'Nádia', 'Karina', 'Pedro']
         nome = random.choices(nomes, k=2)
-        QMessageBox.about(self, 'Title',
-                          f'Nome escolhido aleatoriamente:\nNomes: {nomes}\nEscolhidos: {nome}')
+        QMessageBox.about(self, 'Title', f'Nome escolhido aleatoriamente:\nNomes: {nomes}\nEscolhidos: {nome}')
 
     def btn_rand_shuffle_clicked(self):
         # Embaralha items
-        cartas = ['carta 1', 'carta 2', 'carta 3',
-                  'carta 4', 'carta 5', 'carta 6', 'carta 7']
+        cartas = ['carta 1', 'carta 2', 'carta 3', 'carta 4', 'carta 5', 'carta 6', 'carta 7']
         random.shuffle(cartas)
-        QMessageBox.about(
-            self, 'Title', f'Cartas de 1 a 7 embaralhadas:\n{cartas}')
+        QMessageBox.about(self, 'Title', f'Cartas de 1 a 7 embaralhadas:\n{cartas}')
 
     def btn_rand_sample_clicked(self):
         # Escolhe alelatoriamente item de uma lista ou range sem repeti-los
-        cartas = ['carta 1', 'carta 2', 'carta 3',
-                  'carta 4', 'carta 5', 'carta 6', 'carta 7']
+        cartas = ['carta 1', 'carta 2', 'carta 3', 'carta 4', 'carta 5', 'carta 6', 'carta 7']
         temp = random.sample(cartas, 3)
-        QMessageBox.information(self, 'Cartas Sorteadas',
-                                f'Estas são as cartas:\n{temp}')
+        QMessageBox.information(self, 'Cartas Sorteadas', f'Estas são as cartas:\n{temp}')
 
-    '''Definição Funções para Outros'''
+    # Definição Funções para Outros
 
     def btn_loterias_clicked(self):
         jogo, confirma = QInputDialog.getItem(self, 'Loterias', 'Selecione o jogo para o qual deseja um palpite:',
@@ -369,8 +366,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 megasena = random.sample(range(1, 61), 6)
                 megasena = str(megasena).replace('[', '')
                 megasena = megasena.replace(']', '')
-                dialogo = QMessageBox.question(self, 'Megasena',
-                                               f'Números sorteados:\n{megasena}\n\nDeseja salvar em um arquivo?')
+                dialogo = QMessageBox.question(self, 'Megasena', f'Números sorteados:\n{megasena}\n\nDeseja salvar em um arquivo?')
                 if dialogo == QMessageBox.Yes:
                     # Caminho e Arquivo será salvo na area de trabalho
                     arquivo = os.path.expanduser('~') + os.path.sep + 'Desktop' + os.path.sep + 'Loterias.txt'
@@ -380,24 +376,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 lotofacil = random.sample(range(1, 26), 15)
                 lotofacil = str(lotofacil).replace('[', '')
                 lotofacil = lotofacil.replace(']', '')
-                dialogo = QMessageBox.question(self, 'Lotofacil',
-                                               f'Números sorteados:\n{lotofacil}\n\nDeseja salvar em um arquivo?')
+                dialogo = QMessageBox.question(self, 'Lotofacil', f'Números sorteados:\n{lotofacil}\n\nDeseja salvar em um arquivo?')
                 if dialogo == QMessageBox.Yes:
                     # Caminho e Arquivo será salvo na area de trabalho
                     arquivo = os.path.expanduser('~') + os.path.sep + 'Desktop' + os.path.sep + 'Loterias.txt'
                     funcoes.gravar_loteria('Lotofácil', arquivo, lotofacil)
             elif jogo == 'Lotomania':
-                QMessageBox.information(
-                    self, 'Lotomania', 'Estará disponível em breve')
+                QMessageBox.information(self, 'Lotomania', 'Estará disponível em breve')
             elif jogo == 'Supersete':
-                QMessageBox.information(
-                    self, 'Supersete', 'Estará disponível em breve')
+                QMessageBox.information(self, 'Supersete', 'Estará disponível em breve')
 
     def btn_sistema_operacional_clicked(self):
         plataforma = platform.system()  # utiliza 'import platform' acima
         plataforma2 = sys.platform  # utiliza o "import sys"
-        QMessageBox.about(
-            self, 'Titulo', f'com "import platform": {plataforma}\ncom "import sys": {plataforma2}')
+        QMessageBox.about(self, 'Titulo', f'com "import platform": {plataforma}\ncom "import sys": {plataforma2}')
         '''
         com import platform retorna:
         Linux: Linux
@@ -418,21 +410,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         data = tempo.strftime('%d/%m/%Y')  # Y = aaaa / y = aa
         hora = tempo.strftime('%H:%Mhs')  # '%H:%M:S'
         # e exibo
-        QMessageBox.information(self, 'Data e Hora do Sistema',
-                                f'Data de Hoje do Sistema: {data}\nHora Atual do Sistema: {hora} ')
+        QMessageBox.information(self, 'Data e Hora do Sistema', f'Data de Hoje do Sistema: {data}\nHora Atual do Sistema: {hora} ')
 
     def btn_abrir_segundo_form_clicked(self):
         self.segundo_form.show()
 
-    '''Definição Funções para Testes'''
+    # Definição Funções para Testes
 
+    # /////////////// PARA TESTES //////////////////
     def btn_para_testes_clicked(self):
-        pass
+        digitado, confirma = QInputDialog.getText(self, 'Inverte Nomes', 'Por favor informe seu nome:')
+        if confirma:
+            temp = digitado.replace(' ', '')
+            if temp > '':
+                nome_invertido = digitado[::-1]
+                QMessageBox.information(self, 'Nome Invertido', nome_invertido)
 
 
+'''
+Initialization
+'''
 if __name__ == '__main__':
     app = QApplication()
-    # app.setStyle('Fusion') #Windows - windowsvista - Fusion
+    # app.setStyle('Fusion')  # Windows - windowsvista - Fusion
 
     # Habilitar a aplicação com o tradutor
     translator = QTranslator(app)

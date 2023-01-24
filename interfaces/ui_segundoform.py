@@ -8,16 +8,11 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QPushButton, QSizePolicy,
-    QWidget)
-import resources_rc
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect,
+                            QSize, Qt)
+from PySide6.QtGui import (QIcon)
+from PySide6.QtWidgets import (QLabel, QPushButton)
+
 
 class Ui_frmSegundoForm(object):
     def setupUi(self, frmSegundoForm):
@@ -41,11 +36,13 @@ class Ui_frmSegundoForm(object):
         self.retranslateUi(frmSegundoForm)
 
         QMetaObject.connectSlotsByName(frmSegundoForm)
+
     # setupUi
 
     def retranslateUi(self, frmSegundoForm):
         frmSegundoForm.setWindowTitle(QCoreApplication.translate("frmSegundoForm", u"Form", None))
         self.btnSegFormClose.setText(QCoreApplication.translate("frmSegundoForm", u"Fechar", None))
-        self.label.setText(QCoreApplication.translate("frmSegundoForm", u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:700; color:#55aaff;\">Segundo Form</span></p><p align=\"center\"><span style=\" font-size:18pt; font-weight:700; color:#55aaff;\">ApplicationModal</span></p></body></html>", None))
+        self.label.setText(QCoreApplication.translate("frmSegundoForm",
+                                                      u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:700; color:#55aaff;\">Segundo Form</span></p><p align=\"center\"><span style=\" font-size:18pt; font-weight:700; color:#55aaff;\">ApplicationModal</span></p></body></html>",
+                                                      None))
     # retranslateUi
-
